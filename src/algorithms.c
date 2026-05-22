@@ -159,7 +159,7 @@ void simulate_LRU(int n_frames, int *sequence, int seq_len) {
     }
     print_summary("LRU", hits, misses);
 }
-
+}
 
 // SECOND CHANCE / CLOCK (Extra Credit)
 void simulate_SECOND_CHANCE(int n_frames, int *sequence, int seq_len) {
