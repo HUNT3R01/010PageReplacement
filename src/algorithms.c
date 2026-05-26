@@ -6,7 +6,7 @@
 // FIFO (First-In, First-Out)
 void simulate_FIFO(int n_frames, int *sequence, int seq_len) {
     printf("\n--- FIFO (N=%d) ---\n", n_frames);
-    printf("Step | Ref | Result | Frames             | Evicted\n");
+    printf("Pasos | Ref | Resultado | Frames             | Victima\n");
     
     int frames[n_frames];
     // Inicializamos los marcos con -1 para indicar que están vacíos
@@ -53,7 +53,7 @@ void simulate_FIFO(int n_frames, int *sequence, int seq_len) {
 // MIN / Optimal
 void simulate_MIN(int n_frames, int *sequence, int seq_len) {
     printf("\n--- MIN/Optimal (N=%d) ---\n", n_frames);
-    printf("Step | Ref | Result | Frames             | Evicted\n");
+    printf("Pasos | Ref | Resultado | Frames             | Victima\n");
     
     int frames[n_frames];
     for(int i = 0; i < n_frames; i++) frames[i] = -1;
@@ -111,7 +111,7 @@ void simulate_MIN(int n_frames, int *sequence, int seq_len) {
 // LRU (Least Recently Used)
 void simulate_LRU(int n_frames, int *sequence, int seq_len) {
     printf("\n--- LRU (N=%d) ---\n", n_frames);
-    printf("Step | Ref | Result | Frames             | Evicted\n");
+    printf("Pasos | Ref | Resultado | Frames             | Victima\n");
     
     int frames[n_frames];
     int last_used[n_frames]; // tiempo del último uso de cada marco
@@ -164,7 +164,7 @@ void simulate_LRU(int n_frames, int *sequence, int seq_len) {
 // SECOND CHANCE / CLOCK (Extra Credit)
 void simulate_SECOND_CHANCE(int n_frames, int *sequence, int seq_len) {
     printf("\n--- Second Chance (N=%d) ---\n", n_frames);
-    printf("Step | Ref | Result | Frames             | Evicted\n");
+    printf("Pasos | Ref | Resultado | Frames             | Victima\n");
     
     int frames[n_frames];
     int ref_bits[n_frames]; // reciente = 1, no reciente = 0
@@ -206,7 +206,7 @@ void simulate_SECOND_CHANCE(int n_frames, int *sequence, int seq_len) {
                         // Encontramos una página con bit de referencia 0, esta es la víctima
                         victim = frames[clock_ptr];
                         frames[clock_ptr] = ref;
-                        ref_bits[clock_ptr] = 1; // New page gets a 1
+                        ref_bits[clock_ptr] = 1;
                         clock_ptr = (clock_ptr + 1) % n_frames;
                         break;
                     }
@@ -215,5 +215,5 @@ void simulate_SECOND_CHANCE(int n_frames, int *sequence, int seq_len) {
             print_step(step, ref, false, frames, n_frames, victim);
         }
     }
-    print_summary("Second Chance", hits, misses);
+    print_summary("Segunda Oportunidad", hits, misses);
 }

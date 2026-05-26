@@ -34,7 +34,7 @@ void print_step(int step, int ref, bool is_hit, int *frames, int n_frames, int v
 
     // Si no fue un HIT, imprime la página víctima que fue expulsada
     if (!is_hit && victim != -1) {
-        printf(" | Victim: %d", victim);
+        printf(" | Victima: %d", victim);
     }
     
     printf("\n");
@@ -49,7 +49,7 @@ void print_summary(const char *algo_name, int hits, int misses) {
         hit_rate = ((double)hits / total_requests) * 100.0;
     }
 
-    printf("Totals for %s: hits=%d misses=%d (Hit Rate: %.2f%%)\n", 
+    printf("Totales de %s: hits=%d misses=%d (Radio de Hit: %.2f%%)\n", 
            algo_name, hits, misses, hit_rate);
     printf("==================================================\n");
 }
